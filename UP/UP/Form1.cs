@@ -12,24 +12,24 @@
             // long dividend3;
             // long divisor = 1;//:(
 
-            double s = x;
-            double step = x; 
+            double s = 0;
+            double step = x;
             int n = 1;
 
-	    do
+            do
             {
-                double multiplier = (Math.Pow(2 * n - 1, 2) * x * x) / ((2 * n) * (2 * n + 1)); 
+                double multiplier = (Math.Pow(2 * n - 1, 2) * x * x) / ((2 * n) * (2 * n + 1));
                 step *= multiplier;
 
                 s += step;
 
                 n++;
 
-            }while (Math.Abs(step) < acc && n > 1000);
+            } while (Math.Abs(step) >= acc && n < 1000);
             return s;
 
 
-		// Плохой и не эффективный вариант
+            // Плохой и не эффективный вариант
             //do
             //{
             //    res1 = res2;
@@ -48,19 +48,19 @@
 
             //} while (Math.Abs(res1 - res2) > acc);
             //return x + res2;
+
         }
         public Form1()
         {
             InitializeComponent();
-            label4.Text = arcsin_iterator(0.5, 1e-17).ToString();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-    {
+        {
             try
             {
                 double.Parse(textBox2.Text);
-                if (double.Parse(textBox1.Text) > 0 && double.Parse(textBox1.Text) < 1)
+                if (double.Parse(textBox1.Text) >= 1e-16 && double.Parse(textBox1.Text) < 1)
                     button1.Enabled = true;
 
                 else button1.Enabled = false;
@@ -77,7 +77,7 @@
             if (e.KeyChar >= '0' && e.KeyChar <= '9')
                 return;
 
-            if (e.KeyChar == (char)Keys.Back && textBox2.Text != "")
+            if (e.KeyChar == (char)Keys.Back && textBox1.Text != "")
                 return;
 
             if (e.KeyChar == ',' || e.KeyChar == '.')
@@ -85,7 +85,7 @@
                 e.KeyChar = '.';
                 try
                 {
-                    double.Parse($"{textBox2.Text}{e.KeyChar}");
+                    double.Parse($"{textBox1.Text}{e.KeyChar}");
                     return;
                 }
                 catch { }
@@ -103,7 +103,7 @@
             if (e.KeyChar == (char)Keys.Back && textBox2.Text != "")
                 return;
 
-            if(e.KeyChar == '-' && textBox2.Text == "") 
+            if (e.KeyChar == '-' && textBox2.Text == "")
                 return;
 
             if (e.KeyChar == ',' || e.KeyChar == '.')
@@ -120,6 +120,12 @@
             e.KeyChar = '\0';
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double sum = arcsin_iterator(double.Parse(textBox2.Text), double.Parse(textBox1.Text));
+            label4.Text = $"Arcsin(x) - x = {sum.ToString()}\n" +
+                $"Сумма ряда: {sum.ToString()}\n" +
+                $"Количество членов ряда: {(int)(decimal.GetBits(decimal.Parse(textBox1.Text))[3] >> 16) & 31}";
+        }
     }
 }
