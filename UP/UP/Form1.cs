@@ -2,7 +2,7 @@
 {
     public partial class Form1 : Form
     {
-        private double arcsin_iterator(double x, double acc)
+        private double arcsin_iterator(out int n, double x, double acc)
         {
             // int iter = 1;
             // double res1, res2 = 0;
@@ -14,7 +14,7 @@
 
             double s = 0;
             double step = x;
-            int n = 1;
+            n = 1;
 
             do
             {
@@ -122,7 +122,7 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double sum = arcsin_iterator(double.Parse(textBox2.Text), double.Parse(textBox1.Text));
+            double sum = arcsin_iterator(out int series, double.Parse(textBox2.Text), double.Parse(textBox1.Text));
             label4.Text = $"Arcsin(x) - x = {sum.ToString()}\n" +
                 $"Сумма ряда: {sum.ToString()}\n" +
                 $"Количество членов ряда: {(int)(decimal.GetBits(decimal.Parse(textBox1.Text))[3] >> 16) & 31}";
