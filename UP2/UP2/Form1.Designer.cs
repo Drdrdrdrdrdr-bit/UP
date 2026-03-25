@@ -36,12 +36,10 @@
             numericUpDown2 = new NumericUpDown();
             numericUpDown3 = new NumericUpDown();
             numericUpDown4 = new NumericUpDown();
-            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -112,22 +110,11 @@
             numericUpDown4.TabIndex = 7;
             numericUpDown4.ValueChanged += numericUpDown1_ValueChanged;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Top;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(800, 379);
-            dataGridView1.TabIndex = 8;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
             Controls.Add(numericUpDown4);
             Controls.Add(numericUpDown3);
             Controls.Add(numericUpDown2);
@@ -142,7 +129,6 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -157,6 +143,5 @@
         private NumericUpDown numericUpDown2;
         private NumericUpDown numericUpDown3;
         private NumericUpDown numericUpDown4;
-        private DataGridView dataGridView1;
     }
 }
