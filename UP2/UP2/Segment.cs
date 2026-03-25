@@ -8,7 +8,7 @@ namespace UP2
     {
         public record struct Point(double X, double Y);
 
-        public Point A { get; set; }, B;
+        public Point A, B;
 
 
         public Segment(double x1, double y1, double x2, double y2)
