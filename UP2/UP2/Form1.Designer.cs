@@ -36,6 +36,7 @@
             numericUpDown2 = new NumericUpDown();
             numericUpDown3 = new NumericUpDown();
             numericUpDown4 = new NumericUpDown();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
@@ -81,40 +82,61 @@
             // numericUpDown1
             // 
             numericUpDown1.Location = new Point(43, 385);
+            numericUpDown1.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown1.Minimum = new decimal(new int[] { 10, 0, 0, int.MinValue });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(51, 27);
             numericUpDown1.TabIndex = 4;
+            numericUpDown1.Value = new decimal(new int[] { 3, 0, 0, int.MinValue });
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // numericUpDown2
             // 
             numericUpDown2.Location = new Point(43, 418);
+            numericUpDown2.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown2.Minimum = new decimal(new int[] { 10, 0, 0, int.MinValue });
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(51, 27);
             numericUpDown2.TabIndex = 5;
+            numericUpDown2.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown2.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // numericUpDown3
             // 
             numericUpDown3.Location = new Point(145, 418);
+            numericUpDown3.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown3.Minimum = new decimal(new int[] { 10, 0, 0, int.MinValue });
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(51, 27);
             numericUpDown3.TabIndex = 6;
+            numericUpDown3.Value = new decimal(new int[] { 3, 0, 0, int.MinValue });
             numericUpDown3.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // numericUpDown4
             // 
             numericUpDown4.Location = new Point(145, 385);
+            numericUpDown4.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDown4.Minimum = new decimal(new int[] { 10, 0, 0, int.MinValue });
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(51, 27);
             numericUpDown4.TabIndex = 7;
+            numericUpDown4.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown4.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(212, 425);
+            label5.Name = "label5";
+            label5.Size = new Size(0, 20);
+            label5.TabIndex = 8;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label5);
             Controls.Add(numericUpDown4);
             Controls.Add(numericUpDown3);
             Controls.Add(numericUpDown2);
@@ -143,5 +165,6 @@
         private NumericUpDown numericUpDown2;
         private NumericUpDown numericUpDown3;
         private NumericUpDown numericUpDown4;
+        private Label label5;
     }
 }
