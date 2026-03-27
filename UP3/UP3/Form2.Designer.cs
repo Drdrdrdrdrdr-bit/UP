@@ -43,6 +43,7 @@
             trackBar2.Size = new Size(312, 56);
             trackBar2.TabIndex = 11;
             trackBar2.TickStyle = TickStyle.TopLeft;
+            trackBar2.ValueChanged += trackBar2_ValueChanged;
             // 
             // label4
             // 

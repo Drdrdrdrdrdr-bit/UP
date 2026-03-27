@@ -126,8 +126,8 @@ namespace UP2
             //{
             //    byte d1 = 0;
             //    byte d2 = 0;
-            //    //if (numericUpDown2.Value == 0 || (int)numericUpDown3.Value == 0) d1 += 1; // На пересечении осей
-            //    //if (numericUpDown1.Value == 0 || (int)numericUpDown4.Value == 0) d2 += 1; // На пересечении осей
+            //    //if (numericUpDown2.Value == 0 || (int)numericUpDown3.Value == 0) d1 += 1; 
+            //    //if (numericUpDown1.Value == 0 || (int)numericUpDown4.Value == 0) d2 += 1; 
 
             //    d1 = (numericUpDown2.Value > 0, numericUpDown3.Value > 0) switch
             //    {
@@ -198,9 +198,6 @@ namespace UP2
             if ((c & 4) != 0) label5.Text += "2ч. ";
             if ((c & 8) != 0) label5.Text += "3ч. ";
             if ((c & 16) != 0) label5.Text += "4ч. ";
-            //if (Math.Abs(dX) == Math.Abs(dY)) label5.Text = "Отрезок пересикает центр системы координат";
-
-            //}
         }
     }
 }

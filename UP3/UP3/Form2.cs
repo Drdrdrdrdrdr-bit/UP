@@ -17,6 +17,7 @@ namespace UP3
             _param = param;
             label1.BackColor = _param.colorStart;
             label2.BackColor = _param.colorEnd;
+            trackBar2.Value = _param.speed;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -37,6 +38,11 @@ namespace UP3
                 label2.BackColor = cd.Color;
                 _param.colorEnd = cd.Color;
             }
+        }
+
+        private void trackBar2_ValueChanged(object sender, EventArgs e)
+        {
+            _param.speed = trackBar2.Value;
         }
     }
 }
