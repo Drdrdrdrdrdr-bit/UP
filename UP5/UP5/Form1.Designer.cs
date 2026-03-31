@@ -34,7 +34,12 @@
             сохранитьToolStripMenuItem = new ToolStripMenuItem();
             сохрРезультToolStripMenuItem = new ToolStripMenuItem();
             загрузитьToolStripMenuItem = new ToolStripMenuItem();
+            заданиеToolStripMenuItem = new ToolStripMenuItem();
+            лавинштейнToolStripMenuItem = new ToolStripMenuItem();
+            задачаToolStripMenuItem = new ToolStripMenuItem();
             groupBox2 = new GroupBox();
+            button6 = new Button();
+            button5 = new Button();
             button2 = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -45,6 +50,7 @@
             panel1 = new Panel();
             panel3 = new Panel();
             panel2 = new Panel();
+            label5 = new Label();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
             panel1.SuspendLayout();
@@ -59,7 +65,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(688, 27);
             textBox3.TabIndex = 2;
-            textBox3.TextChanged += textBox3_TextChanged;
+            textBox3.TextChanged += Label2_TextChanged;
             textBox3.KeyPress += textBox3_KeyPress;
             // 
             // button1
@@ -76,7 +82,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { сохранитьToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { сохранитьToolStripMenuItem, заданиеToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
@@ -102,8 +108,35 @@
             загрузитьToolStripMenuItem.Size = new Size(189, 26);
             загрузитьToolStripMenuItem.Text = "Загрузить";
             // 
+            // заданиеToolStripMenuItem
+            // 
+            заданиеToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { лавинштейнToolStripMenuItem, задачаToolStripMenuItem });
+            заданиеToolStripMenuItem.Name = "заданиеToolStripMenuItem";
+            заданиеToolStripMenuItem.Size = new Size(85, 24);
+            заданиеToolStripMenuItem.Text = "Задание ";
+            // 
+            // лавинштейнToolStripMenuItem
+            // 
+            лавинштейнToolStripMenuItem.Checked = true;
+            лавинштейнToolStripMenuItem.CheckOnClick = true;
+            лавинштейнToolStripMenuItem.CheckState = CheckState.Checked;
+            лавинштейнToolStripMenuItem.Name = "лавинштейнToolStripMenuItem";
+            лавинштейнToolStripMenuItem.Size = new Size(180, 26);
+            лавинштейнToolStripMenuItem.Text = "Лавинштейн";
+            лавинштейнToolStripMenuItem.Click += лавинштейнToolStripMenuItem_Click;
+            // 
+            // задачаToolStripMenuItem
+            // 
+            задачаToolStripMenuItem.CheckOnClick = true;
+            задачаToolStripMenuItem.Name = "задачаToolStripMenuItem";
+            задачаToolStripMenuItem.Size = new Size(180, 26);
+            задачаToolStripMenuItem.Text = "Задача";
+            задачаToolStripMenuItem.Click += задачаToolStripMenuItem_Click;
+            // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(button6);
+            groupBox2.Controls.Add(button5);
             groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(button1);
             groupBox2.Dock = DockStyle.Right;
@@ -112,6 +145,28 @@
             groupBox2.Size = new Size(112, 284);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
+            // 
+            // button6
+            // 
+            button6.Enabled = false;
+            button6.Location = new Point(10, 11);
+            button6.Name = "button6";
+            button6.Size = new Size(94, 29);
+            button6.TabIndex = 6;
+            button6.Text = "Найти";
+            button6.UseVisualStyleBackColor = true;
+            button6.Visible = false;
+            button6.Click += button6_Click;
+            // 
+            // button5
+            // 
+            button5.Enabled = false;
+            button5.Location = new Point(10, 81);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 29);
+            button5.TabIndex = 5;
+            button5.Text = "Удалить";
+            button5.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -125,7 +180,6 @@
             // 
             // label1
             // 
-            label1.Dock = DockStyle.Left;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
             label1.Size = new Size(115, 30);
@@ -135,18 +189,17 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Dock = DockStyle.Left;
-            label2.Location = new Point(117, 0);
+            label2.Location = new Point(115, 0);
             label2.Name = "label2";
             label2.Size = new Size(0, 20);
             label2.TabIndex = 10;
+            label2.TextChanged += Label2_TextChanged;
             // 
             // label3
             // 
-            label3.Dock = DockStyle.Left;
             label3.Location = new Point(0, 0);
             label3.Name = "label3";
-            label3.Size = new Size(117, 28);
+            label3.Size = new Size(115, 28);
             label3.TabIndex = 11;
             label3.Text = "Путь загр. ф. :";
             label3.TextAlign = ContentAlignment.TopRight;
@@ -154,11 +207,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Dock = DockStyle.Left;
-            label4.Location = new Point(115, 0);
+            label4.Location = new Point(117, 0);
             label4.Name = "label4";
             label4.Size = new Size(0, 20);
             label4.TabIndex = 12;
+            label4.TextChanged += Label2_TextChanged;
             // 
             // button3
             // 
@@ -169,6 +222,7 @@
             button3.TabIndex = 0;
             button3.Text = "...";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_1;
             // 
             // button4
             // 
@@ -179,9 +233,11 @@
             button4.TabIndex = 0;
             button4.Text = "...";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // panel1
             // 
+            panel1.Controls.Add(label5);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(textBox3);
@@ -193,8 +249,8 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(label2);
             panel3.Controls.Add(button4);
-            panel3.Controls.Add(label4);
             panel3.Controls.Add(label1);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 55);
@@ -204,14 +260,25 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(label2);
             panel2.Controls.Add(button3);
+            panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 27);
             panel2.Name = "panel2";
             panel2.Size = new Size(688, 28);
             panel2.TabIndex = 13;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Dock = DockStyle.Bottom;
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(0, 264);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 20);
+            label5.TabIndex = 15;
+            label5.Text = "label5";
             // 
             // Form1
             // 
@@ -256,5 +323,11 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
+        private ToolStripMenuItem заданиеToolStripMenuItem;
+        private ToolStripMenuItem лавинштейнToolStripMenuItem;
+        private ToolStripMenuItem задачаToolStripMenuItem;
+        private Button button6;
+        private Button button5;
+        private Label label5;
     }
 }
