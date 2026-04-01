@@ -5,15 +5,18 @@ namespace UP5
     public partial class Form1 : Form, IWork
     {
         //private Regex _digits;
+        TaskLib _tl;
         public Form1()
         {
             InitializeComponent();
+            _tl = new TaskLib(this);
         }
-        string PatchLoad { get; }
-        string PatchSave { get; }
+        public string PatchLoad { get; }
+        public string PatchSave { get; }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            _tl.ReturnLivingstain(textBox3.Text);
             //var matches = _digits.Matches(textBox1.Text);
             //textBox2.Text = string.Join(", ", matches.Select(m => m.Value));
         }
@@ -58,7 +61,7 @@ namespace UP5
 
         private void Label2_TextChanged(object sender, EventArgs e)
         {
-            if (label2.Text == "" && label4.Text == "")
+            if (label2.Text == "" || label4.Text == "" || textBox1.Text == "")
             {
                 //menuStrip1.Enabled = false;
                 button1.Enabled = false;
@@ -72,13 +75,14 @@ namespace UP5
                 button2.Enabled = true;
                 button5.Enabled = true;
                 button6.Enabled = true;
+                _tl.LoadWords();
                 //menuStrip1.Enabled = true;
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            _tl.ReturnTask(textBox3.Text);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -124,9 +128,19 @@ namespace UP5
             }
         }
 
-        private void PrintMassage(string text)
+        public void PrintMassage(string text)
         {
             label5.Text = text;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            _tl.RemuvWord(textBox3.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _tl.AddWord(textBox3.Text);
         }
     }
 }

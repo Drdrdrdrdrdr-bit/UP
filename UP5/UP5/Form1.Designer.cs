@@ -48,9 +48,9 @@
             button3 = new Button();
             button4 = new Button();
             panel1 = new Panel();
+            label5 = new Label();
             panel3 = new Panel();
             panel2 = new Panel();
-            label5 = new Label();
             menuStrip1.SuspendLayout();
             groupBox2.SuspendLayout();
             panel1.SuspendLayout();
@@ -149,7 +149,7 @@
             // button6
             // 
             button6.Enabled = false;
-            button6.Location = new Point(10, 11);
+            button6.Location = new Point(12, 12);
             button6.Name = "button6";
             button6.Size = new Size(94, 29);
             button6.TabIndex = 6;
@@ -167,6 +167,7 @@
             button5.TabIndex = 5;
             button5.Text = "Удалить";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button2
             // 
@@ -177,6 +178,7 @@
             button2.TabIndex = 4;
             button2.Text = "Вставить";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
@@ -247,6 +249,17 @@
             panel1.Size = new Size(688, 284);
             panel1.TabIndex = 13;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Dock = DockStyle.Bottom;
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(0, 264);
+            label5.Name = "label5";
+            label5.Size = new Size(50, 20);
+            label5.TabIndex = 15;
+            label5.Text = "label5";
+            // 
             // panel3
             // 
             panel3.Controls.Add(label2);
@@ -268,17 +281,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(688, 28);
             panel2.TabIndex = 13;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Dock = DockStyle.Bottom;
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(0, 264);
-            label5.Name = "label5";
-            label5.Size = new Size(50, 20);
-            label5.TabIndex = 15;
-            label5.Text = "label5";
             // 
             // Form1
             // 
