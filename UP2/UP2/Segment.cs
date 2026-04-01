@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UP2
 {
-    internal class Segment
+    public class Segment
     {
         public record struct Point(float X, float Y);
 

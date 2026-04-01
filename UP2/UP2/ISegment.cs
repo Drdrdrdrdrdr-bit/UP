@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UP2
 {
-    internal interface ISegment
+    public interface ISegment
     {
         void PrintQuadrant(string text);
     }
