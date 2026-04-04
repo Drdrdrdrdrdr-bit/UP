@@ -34,6 +34,7 @@
             button1 = new Button();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
+            labelTimer = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -84,6 +85,14 @@
             pictureBox3.TabIndex = 3;
             pictureBox3.TabStop = false;
             // 
+            // labelTimer
+            // 
+            labelTimer.AutoSize = true;
+            labelTimer.Location = new Point(1, 9);
+            labelTimer.Name = "labelTimer";
+            labelTimer.Size = new Size(0, 20);
+            labelTimer.TabIndex = 4;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -93,12 +102,14 @@
             Controls.Add(pictureBox2);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
+            Controls.Add(labelTimer);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -108,5 +119,6 @@
         private Button button1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private Label labelTimer;
     }
 }

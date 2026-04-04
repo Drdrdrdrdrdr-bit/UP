@@ -6,7 +6,7 @@ namespace UP5Lib
     public class TaskLib
     {
         IWork _form;
-        private Dictionary<int, HashSet<string>> _dict;
+        private Dictionary<int, HashSet<string>> _dict = new();
         private Regex _digits = new Regex(@"\b\w+\b", RegexOptions.Compiled);
         int _MError = 3;
 
@@ -15,7 +15,7 @@ namespace UP5Lib
             _form = form;
         }
         public void LoadWords()
-        {
+        {   
             var matches = _digits.Matches(File.ReadAllText(_form.PatchLoad));
             foreach (Match match in matches)
             {
@@ -43,7 +43,7 @@ namespace UP5Lib
             {
                 foreach (var query in pair.Value)
                 {
-                    s += $"{pair.Value}\n";
+                    s += $"{query}\n";
                 }
             }
             return s;
@@ -52,8 +52,10 @@ namespace UP5Lib
         {
             try
             {
+                _form.PrintMassage("Загружаем");
                 LoadWord(word);
                 File.WriteAllText(_form.PatchLoad, DictToString());
+                _form.PrintMassage("Успешно");
             }
             catch (Exception ex)
             {
@@ -64,8 +66,10 @@ namespace UP5Lib
         {
             try
             {
+                _form.PrintMassage("Загружаем");
                 ReloadWord(word);
-                File.AppendAllText(_form.PatchLoad, DictToString()); // !!
+                File.WriteAllText(_form.PatchLoad, DictToString()); // !!
+                _form.PrintMassage("Успешно");
             }
             catch (Exception ex)
             {
@@ -75,10 +79,12 @@ namespace UP5Lib
         public void WriteResult(string words)
         {
                File.WriteAllText(_form.PatchSave, words);
+            _form.PrintMassage("Успешно");
         }
 
         public void ReturnTask(string word)
         {
+            _form.PrintMassage("Загружаем");
             int len = word.Length + 3;
             string s = "";
             foreach (var pair in _dict)
@@ -88,7 +94,7 @@ namespace UP5Lib
                     foreach (var query in pair.Value)
                     {
                         if (HasLetters(word, query))
-                            s += $"{pair.Value}\n";
+                            s += $"{query}\n";
                     }
                 }
             }
@@ -96,6 +102,7 @@ namespace UP5Lib
         }
         private bool HasLetters(string word, string letters)
         {
+            _form.PrintMassage("Загружаем");
             var set = new HashSet<char>(word);
 
             foreach (char c in letters)
@@ -117,7 +124,7 @@ namespace UP5Lib
                     foreach(var query in pair.Value)
                     {
                         if (Levenshtein(word, query))
-                        s += $"{pair.Value}\n";
+                        s += $"{query}\n";
                     }
                 }
 

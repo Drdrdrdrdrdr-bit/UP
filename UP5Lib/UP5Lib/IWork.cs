@@ -6,8 +6,8 @@ namespace UP5Lib
 {
     public interface IWork
     {
-        string PatchLoad{ get; }
-        string PatchSave{ get; }
+        string PatchLoad { get; set; }
+        string PatchSave { get; set; }
         void PrintMassage(string text);
     }
 }
