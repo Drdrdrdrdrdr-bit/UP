@@ -162,6 +162,7 @@
             button8.TabIndex = 11;
             button8.Text = "Следующий уровень";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // Form1
             // 
