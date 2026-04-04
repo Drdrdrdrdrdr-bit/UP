@@ -24,7 +24,7 @@ namespace UP2
             B.X = x2;
             B.Y = y2;
         }
-        public void GetQuadrant()
+        public string GetQuadrant()
         {
             //if (p.X == 0 || p.Y == 0) return 0; // На пересечении осей
 
@@ -120,6 +120,7 @@ namespace UP2
             if ((c & 8) != 0) mass += "3ч. ";
             if ((c & 16) != 0) mass += "4ч. ";
             _form.PrintQuadrant(mass);   
+            return mass;
         }
 
 

@@ -5,14 +5,14 @@ namespace UP5
     public partial class Form1 : Form, IWork
     {
         //private Regex _digits;
-        TaskLib _tl;
+        private TaskLib _tl;
         public Form1()
         {
             InitializeComponent();
             _tl = new TaskLib(this);
         }
-        public string PatchLoad { get; }
-        public string PatchSave { get; }
+        public string PatchLoad { get; set; }
+        public string PatchSave { get; set; }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -28,21 +28,6 @@ namespace UP5
 
             if (e.KeyChar == ' ' || e.KeyChar <= '\n' || e.KeyChar <= '\t' || (e.KeyChar >= '0' && e.KeyChar <= '9'))
                 e.KeyChar = '\0';
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox3.Text == "") // !!!!
-            {
-                button1.Enabled = false;
-                button2.Enabled = false;
-            }
-            else
-            {
-                button1.Enabled = true;
-                button2.Enabled = true;
-            }
-            //_digits = new Regex(@"\b\w*[{textBox3.Text}]\w*\b", RegexOptions.Compiled);
         }
 
         private void задачаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,7 +46,7 @@ namespace UP5
 
         private void Label2_TextChanged(object sender, EventArgs e)
         {
-            if (label2.Text == "" || label4.Text == "" || textBox1.Text == "")
+            if (label2.Text == "" || label4.Text == "" || textBox3.Text == "")
             {
                 //menuStrip1.Enabled = false;
                 button1.Enabled = false;
@@ -85,10 +70,6 @@ namespace UP5
             _tl.ReturnTask(textBox3.Text);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
@@ -102,6 +83,7 @@ namespace UP5
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    PatchLoad = openFileDialog.FileName;
                     label4.Text = openFileDialog.FileName;
 
                     // updateText(File.ReadAllText(filePath));
@@ -121,6 +103,7 @@ namespace UP5
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    PatchSave = openFileDialog.FileName;
                     label2.Text = openFileDialog.FileName;
 
                     // updateText(File.ReadAllText(filePath));
